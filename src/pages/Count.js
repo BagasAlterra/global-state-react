@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom";
 
 const Count = () => {
   const navigate = useNavigate();
-  const { count, handleCount } = useCountContext();
+  const { count, toggle, handleTheme, handleCount } = useCountContext();
 
   const nextPage = () => {
     navigate("/detailCount");
   };
 
   return (
-    <div>
+    <div style={{ background: toggle ? "white" : "black" }}>
       <div>
         <p>Hasil perhitungan : {count}</p>
       </div>
@@ -23,6 +23,9 @@ const Count = () => {
       </div>
       <div style={{ marginTop: 30 }}>
         <Button onClick={() => nextPage()}>Lompat ke Detail Count</Button>
+      </div>
+      <div style={{ marginTop: 30 }}>
+        <Button onClick={() => handleTheme()}>Ganti ke Dark Mode</Button>
       </div>
     </div>
   );

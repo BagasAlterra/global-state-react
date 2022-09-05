@@ -2,10 +2,10 @@ import React from "react";
 import { useCountContext } from "../context/CountProvider";
 
 const DetailCount = () => {
-  const { count } = useCountContext();
+  const { count, toggle } = useCountContext();
 
   return (
-    <div>
+    <div style={{ background: toggle ? "white" : "black" }}>
       <div>
         <p>Hasil perhitungan dari halaman Count : {count}</p>
       </div>
