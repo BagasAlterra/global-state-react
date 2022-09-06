@@ -1,16 +1,17 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { CountProvider } from "./context/CountProvider";
 
 import Count from "./pages/Count";
 import DetailCount from "./pages/DetailCount";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const App = () => {
   return (
-    <CountProvider>
+    <Provider store={store}>
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Count />} />
@@ -20,7 +21,7 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
-    </CountProvider>
+    </Provider>
   );
 };
 
